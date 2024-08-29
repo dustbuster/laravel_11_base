@@ -6,7 +6,13 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
 
+Route::get('/example', function () {
+    return response()->json(['message' => 'Hello from Laravel!']);
+});
 
 
 Route::post('users', [UsersController::class, 'store']);

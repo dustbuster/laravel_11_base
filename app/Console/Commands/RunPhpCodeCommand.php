@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\LeetCode\Solution;
 use Illuminate\Console\Command;
 
 class RunPhpCodeCommand extends Command
@@ -11,7 +12,7 @@ class RunPhpCodeCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'app:run-test-code';
+    protected $signature = 'app:test-code';
 
     /**
      * The console command description.
@@ -25,6 +26,10 @@ class RunPhpCodeCommand extends Command
      */
     public function handle()
     {
-        
+        $solution = new Solution();
+        // $n = rand(0, 20);
+        $n = 257;
+        dump('This digit is '. $n);
+        dump($solution->rotatedDigits($n));
     }
 }
